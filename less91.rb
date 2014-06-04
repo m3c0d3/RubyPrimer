@@ -7,10 +7,10 @@ p STDIN.fileno
 p STDERR.class
 p STDERR.fileno
 
-# open the file "new-fd" and create a file descriptor:
-fd = IO.sysopen("new-fd", "w")
+# open the file "friends_list.txt" and create a file descriptor:
+fd = IO.sysopen('friends_list.txt', 'w')
 
-# create a new I/O stream using the file descriptor for "new-fd":
+# create a new I/O stream using the file descriptor for "friends_list.txt":
 p IO.new(fd)
 
 io_streams = Array.new
@@ -31,3 +31,9 @@ puts
 
 p $stderr.object_id
 p STDERR.object_id
+
+# capturing the error default handler
+capture = StringIO.new
+$stderr = capture
+
+$stderr.warn ('test')
