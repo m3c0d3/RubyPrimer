@@ -10,6 +10,5 @@ class Problem12
     t0 = Time.now
     proc.call
     Time.now - t0
-
   end
 end
